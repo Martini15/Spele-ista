@@ -50,9 +50,33 @@ const BumbaWidth = 30;
     return true;                                                       
 
     } 
+function MyKeyDownHandler (MyEvent) {  
+
+   if (MyEvent.keyCode == 37 && meitene_x > 0) {meitene_x = meitene_x - 10;}                          
+
+   if (MyEvent.keyCode == 39 && meitene_x+meiteneImg.width < mansZimejums.width) {meitene_x = meitene_x+10;}  
+
+   if (MyEvent.keyCode == 83) restart_game();                                            
+
+   MyEvent.preventDefault(); 
+
+   } 
+addEventListener("keydown", MyKeyDownHandler); 
+
+ function Do_a_Frame () { 
+
+    ctx.clearRect(0, 0, mansZimejums.width, mansZimejums.height);               
+    ctx.fillStyle= "blue"; 
+    ctx.font = "20px Arial"; 
+    ctx.fillText("Punkti: " + score, 0, 20);          // Displejs                    
+
+    meitene_y = mansZimejums.height - meiteneImg.height;                               
+    ctx.drawImage(meiteneImg, meitene_x, meitene_y);                                  
+
+    ctx.fillText("Atlikušais laiks: " + Math.round(time_remaining), 0, 45); // cik laika vēl ir palicis
 
 
-
+  
  let Bumba_speed = 3; 
 
  let FPS = 40;                        // Pievienoju rezultātu, bumbas ātrumu un laiku
@@ -81,28 +105,7 @@ const BumbaWidth = 30;
 
  
 
- function Do_a_Frame () { 
 
-    ctx.clearRect(0, 0, mansZimejums.width, mansZimejums.height);                 
-
- 
-
-    ctx.fillStyle= "purple"; 
-
-    ctx.font = "20px Arial"; 
-
-    ctx.fillText("Score: " + score, 0, 20);          // Displejs                    
-
- 
-
- 
-
-    meitene_y = mansZimejums.height - meiteneImg.height;                               
-
-    ctx.drawImage(meiteneImg, meitene_x, meitene_y);                                  
- 
-
-    ctx.fillText("Time Remaining: " + Math.round(time_remaining), 0, 45); // cik laika vēl ir palicis
 
  
 
@@ -114,11 +117,11 @@ const BumbaWidth = 30;
 
           ctx.textAlign="center"; 
 
-          ctx.fillText("Game Over", mansZimejums.width / 2, mansZimejums.height / 2);   
+          ctx.fillText("Spēles beigas", mansZimejums.width / 2, mansZimejums.height / 2);   
 
           ctx.font = "bold 20px Arial"; 
 
-          ctx.fillText("Press S to play again", mansZimejums.width / 2, (mansZimejums.height / 2)+50); 
+          ctx.fillText("Spied S lai spēlātu atkal", mansZimejums.width / 2, (mansZimejums.height / 2)+50); 
 
           ctx.textAlign="left"; 
 
@@ -169,21 +172,10 @@ const BumbaWidth = 30;
 
  
 
- function MyKeyDownHandler (MyEvent) {  
-
-   if (MyEvent.keyCode == 37 && meitene_x > 0) {meitene_x = meitene_x - 10;}                          
-
-   if (MyEvent.keyCode == 39 && meitene_x+meiteneImg.width < mansZimejums.width) {meitene_x = meitene_x+10;}  
-
-   if (MyEvent.keyCode == 83) restart_game();                                            
-
-   MyEvent.preventDefault(); 
-
-   } 
-
+ 
  
 
- addEventListener("keydown", MyKeyDownHandler);                        
+                       
 
  
 
