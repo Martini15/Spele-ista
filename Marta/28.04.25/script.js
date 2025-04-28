@@ -21,12 +21,6 @@ let Bumba_y = 0;
 const BumbaWidth = 30;
  const BumbaHeigth = 30;
 
-  
-
-  
-
- 
-
  
 
  let score = 0; 
@@ -79,11 +73,7 @@ addEventListener("keydown", MyKeyDownHandler);
   
  let Bumba_speed = 3; 
 
- let FPS = 40;                        // Pievienoju rezultātu, bumbas ātrumu un laiku
-
- 
-
- 
+ let FPS = 40;                        // Pievienoju rezultātu, bumbas ātrumu un laiks
 
  
 
@@ -97,15 +87,6 @@ addEventListener("keydown", MyKeyDownHandler);
      Bumba_speed = 3; 
 
      } 
-
- 
-
- 
- 
-
- 
-
-
 
  
 
@@ -130,28 +111,17 @@ addEventListener("keydown", MyKeyDownHandler);
     else { 
 
           time_remaining = time_remaining - 1/FPS;                         
-
- 
-
-          Bumba_y = Bumba_y + Bumba_speed;                                
-
- 
-
+          Bumba_y = Bumba_y + Bumba_speed; 
+     
           if (Bumba_y > mansZimejums.height) {                                 
-
               Bumba_y= 0;                                                  
-
               Bumba_x= Math.random() * (mansZimejums.width - BumbaImg.width); 
 
               }    
 
           } 
 
- 
-
     ctx.drawImage(BumbaImg, Bumba_x, Bumba_y);                            //Zīmē bumbu
-
- 
 
     if (ImagesTouching(meitene_x, meitene_y, meiteneImg, Bumba_x, Bumba_y, BumbaImg)) {  // Apskata vai ir pieskāries
 
@@ -164,22 +134,9 @@ addEventListener("keydown", MyKeyDownHandler);
 
     }  
 
+
+ setInterval(Do_a_Frame, 1000/FPS);                                     
  
-
- setInterval(Do_a_Frame, 1000/FPS);                                          // 
-
- 
-
- 
-
- 
- 
-
-                       
-
- 
-
  mansZimejums.width = window.innerWidth - 20;                            
  mansZimejums.height = window.innerHeight - 20;                          
 
- 
